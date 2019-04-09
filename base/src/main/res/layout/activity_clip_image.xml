@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:custom="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/black">
+
+    <com.isseiaoki.simplecropview.CropImageView
+            android:id="@+id/cropImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            custom:scv_background_color="#1C1C1C"
+            custom:scv_crop_mode="fit_image"
+            custom:scv_frame_stroke_weight="1pt"
+            custom:scv_guide_show_mode="show_always"
+            custom:scv_guide_stroke_weight="1pt"
+            custom:scv_handle_show_mode="show_always"
+            custom:scv_handle_size="14pt"
+            custom:scv_min_frame_size="50pt"
+            custom:scv_touch_padding="8pt"/>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60pt">
+
+        <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="45pt"
+                android:scaleType="center"
+                android:src="@drawable/ic_left_ffffff_58"/>
+
+        <com.base.base.baseui.widget.view.RTextView
+                android:id="@+id/tv_use"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="60pt"
+                android:paddingStart="60pt"
+                android:paddingTop="15pt"
+                android:paddingEnd="60pt"
+                android:paddingBottom="15pt"
+                android:text="使用"
+                android:textColor="@color/color_ffffff"
+                android:textSize="14sp"
+                app:background_normal="#80000000"
+                app:corner_radius="48pt"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

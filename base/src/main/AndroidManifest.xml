@@ -1,0 +1,79 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.base.base">
+
+    <!--读取网络信息状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--获取当前wifi状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--允许程序改变网络连接状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <!--外存储写权限，构建语法需要用到此权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--外存储读权限，构建语法需要用到此权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!--如需使用人脸识别，还要添加：摄相头权限，拍照需要用到 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!--网络-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--震动-->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!--&lt;!&ndash;NFC权限&ndash;&gt;-->
+    <!--<uses-permission android:name="android.permission.NFC"/>-->
+    <!--&lt;!&ndash;要求当前设备必须要有NFC芯片 &ndash;&gt;-->
+    <!--<uses-feature-->
+    <!--android:name="android.hardware.nfc"-->
+    <!--android:required="true"/>-->
+
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <!--打印机需要权限***************************************************************************-->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.hardware.usb.accessory"/>
+
+    <uses-feature android:name="android.hardware.usb.host"/>
+    <!--打印机需要权限***************************************************************************-->
+
+    <application>
+
+        <!--启动页-->
+        <activity
+                android:name=".baseui.widget.splash.GuideActivity"
+                android:screenOrientation="portrait"/>
+
+        <!--图片裁剪-->
+        <activity
+                android:name=".baseui.widget.album.ClipImageActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"/>
+
+        <!--二维码扫描-->
+        <activity
+                android:name=".baseui.scan.activity.ScanCodeActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"/>
+
+        <!--图片预览-->
+        <activity
+                android:name=".baseui.activity.ImagePreviewActivity"
+                android:screenOrientation="portrait"/>
+
+        <activity
+                android:name=".utilcode.util.PermissionUtils$PermissionActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:multiprocess="true"
+                android:theme="@style/ActivityTranslucent"
+                android:windowSoftInputMode="stateHidden|stateAlwaysHidden"/>
+
+        <provider
+                android:name="android.support.v4.content.FileProvider"
+                android:authorities="${applicationId}.utilcode.provider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/util_code_provider_paths"/>
+        </provider>
+    </application>
+
+</manifest>
